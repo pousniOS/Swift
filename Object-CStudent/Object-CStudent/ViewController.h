@@ -5,9 +5,9 @@
 //  Created by mac on 2020/11/9.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <UIKit/UIKit.h>
 
-@interface ViewController : NSViewController
+@interface ViewController : UIViewController
 
 
 @end
