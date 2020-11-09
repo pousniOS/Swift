@@ -143,6 +143,81 @@ let letDouble : Double = 32.0
  >+ 3. 引用类型 例如：类（class）
 */
 
+/*:
+>+ 5.字面量
+>>+ 1.布尔
+ **/
+let bool = true;
 
 
 
+/*:
+>>+ 2.  整数
+ */
+
+let intDecimal = 17 //十进制
+let intBinary = 0b10001 //二进制
+let intOctal = 0o21 //八进制
+let intHexadecimal = 0x11 //十六进制
+
+/*:
+>>+ 3.字符串
+ */
+let string = "string"
+
+/*:
+ >>+ 4.字符
+ */
+let charcater: Character = "🙅‍♂️" //可存储ASCII字符串、Unicode字符
+
+/*:
+ >>+ 5.浮点数
+ */
+let doubleDecimal = 125.0 //十进制，等价于1.25e、0.0125等价1.25e-2
+let doubleHexadecimal1 = 0xFp2 //十六进制，意味着15x2^2,相当于十进制的60.0
+let doubleHexadecimal2 = 0xFp-2//十六进制,意味着15x2^-2,相当于十进制的3.75
+
+/*:
+>>+ 6.整数和浮点数可以额外的添加零和下划线来增强可读性 例如：
+*/
+100_000
+100_000.000_000_1
+00001234.56
+
+/*:
+ >>+ 7. 数组
+ */
+let array = [1,2,3,4]
+
+/*:
+ >>+ 8.字典
+ */
+let dictionary = ["age":18,"height":180,"weight":120]
+
+/*:
+ >+ 6. 类型转换
+ >>+ 1.不同类型这间是不能用来做运算的需要通过类型转换
+ >>+ 2.字面量可以直接相加的，因为字面量没有明确的类型
+ */
+let int1: UInt16 = 2_00
+let int2: UInt32  = 2_00
+
+let int3 = int1 + UInt16(int2)
+
+let double1 = 10 + 0.2353
+
+/*:
+ >+ 6. 元组类型
+ */
+let error = (400,"Not Found")
+error.0
+error.1
+
+let http404Error = (404,"Not Found")
+print("the status code is\(http404Error)")
+let (code,errorMsg) = http404Error
+print("the status code is \(code)")
+let (status,_) = http404Error
+
+let http200Status = (statusCode:200,desc:"OK")
+print("the status code is \(http200Status.statusCode)")
