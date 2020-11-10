@@ -53,9 +53,10 @@
 }
 +(void)pthread_mutex{
     pthread_mutex_t mutex;
-    pthread_attr_t mutex_attr;
+    pthread_mutexattr_t mutex_attr;
     pthread_mutex_init(&mutex, &mutex_attr);
-    
-    pthread_mutexattr_settype(<#pthread_mutexattr_t * _Nonnull#>, <#int#>)
+    pthread_mutexattr_settype(&mutex_attr, PTHREAD_MUTEX_NORMAL);
+    pthread_mutex_unlock(&mutex);
+    pthread_mutex_lock(&mutex);
 }
 @end
