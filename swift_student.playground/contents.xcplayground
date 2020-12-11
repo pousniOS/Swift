@@ -8,5 +8,8 @@
         <page name='内联函数'/>
         <page name='inline'/>
         <page name='嵌套函数(Nested Function)'/>
+        <page name='函数类型'/>
+        <page name='枚举-关联值'/>
+        <page name='关联值-内存布局'/>
     </pages>
 </playground>
