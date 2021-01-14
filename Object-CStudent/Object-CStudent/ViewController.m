@@ -7,6 +7,7 @@
 
 #import "ViewController.h"
 #import <pthread/pthread.h>
+#import "TestBlock.h"
 @interface ViewController ()
 @property(nonatomic,strong)NSMutableArray *dataArr;
 @property(nonatomic,assign)pthread_cond_t cond;
@@ -19,6 +20,40 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    UIButton *but = UIButton.new;
+    but.frame = CGRectMake(0, 0, 100, 100);
+    but.backgroundColor = UIColor.blackColor;
+    [self.view addSubview:but];
+    [but addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+-(void)buttonAction:(UIButton *)sender{
+    [self pustTest];
+}
+-(void)pustTest{
+    ViewController *vc = ViewController.new;
+    vc.view.backgroundColor = UIColor.redColor;
+    [vc push:^{
+        sleep(10);
+        [self presentViewController:vc animated:YES completion:nil];
+    }];
+}
+
+
+-(void)push:(void(^)(void))block{
+    block();
+}
+-(void)block_test{
+    TestBlock *block = TestBlock.new;
+    [block run:^{
+        sleep(5);
+        UILabel *lable = UILabel.new;
+        lable.frame = CGRectMake(0, 0, 100, 100);
+        lable.text = block.description;
+        [self.view addSubview:lable];
+    }];
+}
+-(void)pthred_Test{
     self.dataArr = NSMutableArray.new;
     
     pthread_mutexattr_t attr;
@@ -63,6 +98,7 @@
         pthread_mutex_unlock(&strongSelf->_lock);
     });
 }
+
 -(void)dealloc{
     pthread_mutex_unlock(&self->_lock);
 }

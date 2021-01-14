@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		045539D625834AE000F3D7FB /* TestBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 045539D525834AE000F3D7FB /* TestBlock.m */; };
 		047520CA2558F54200844A17 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 047520C92558F54200844A17 /* AppDelegate.m */; };
 		047520CD2558F54200844A17 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 047520CC2558F54200844A17 /* SceneDelegate.m */; };
 		047520D02558F54200844A17 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047520CF2558F54200844A17 /* ViewController.m */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		045539D425834AE000F3D7FB /* TestBlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestBlock.h; sourceTree = "<group>"; };
+		045539D525834AE000F3D7FB /* TestBlock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestBlock.m; sourceTree = "<group>"; };
 		047520C52558F54200844A17 /* Object-CStudent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Object-CStudent.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		047520C82558F54200844A17 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		047520C92558F54200844A17 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -115,6 +118,8 @@
 				047520D62558F54400844A17 /* LaunchScreen.storyboard */,
 				047520D92558F54400844A17 /* Info.plist */,
 				047520DA2558F54400844A17 /* main.m */,
+				045539D425834AE000F3D7FB /* TestBlock.h */,
+				045539D525834AE000F3D7FB /* TestBlock.m */,
 			);
 			path = "Object-CStudent";
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				045539D625834AE000F3D7FB /* TestBlock.m in Sources */,
 				047520D02558F54200844A17 /* ViewController.m in Sources */,
 				047520CA2558F54200844A17 /* AppDelegate.m in Sources */,
 				047520DB2558F54400844A17 /* main.m in Sources */,
