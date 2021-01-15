@@ -31,8 +31,11 @@ enum Season:String{
     case spring,summer,autumn,winter
 }
 Season.spring.rawValue
-
 MemoryLayout<Season>.size
 MemoryLayout<Season>.alignment
 MemoryLayout<Season>.stride
+
+
+var aumot = 30167.78+368754.77+75519.15+4435
+//: + 探究内存细节的小工具：[存小工具](https://github.com/CoderJMLee/Mems)
 //: [Next](@next)

@@ -11,5 +11,7 @@
         <page name='函数类型'/>
         <page name='枚举-关联值'/>
         <page name='关联值-内存布局'/>
+        <page name='可选项(3-1)'/>
+        <page name='汇编分析枚举的内存布局(4-1)'/>
     </pages>
 </playground>
