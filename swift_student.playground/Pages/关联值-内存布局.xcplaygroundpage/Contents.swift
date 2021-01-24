@@ -21,7 +21,8 @@ MemoryLayout<Password>.size
 MemoryLayout<Password>.alignment
 MemoryLayout<Password>.stride
 
-var pwd = Password.number(1,1,1,1)
+
+var pwd = Password.other
 MemoryLayout.size(ofValue: pwd)
 MemoryLayout.stride(ofValue: pwd)
 MemoryLayout.alignment(ofValue: pwd)
