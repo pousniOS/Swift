@@ -40,12 +40,13 @@
 ## TCP/IP四层模型
 
 ### 理想七层模型和实际四层模型对应关系
-|七层模型|四层模型|重要的协议|
-|:----:|:----:||
+
+|七层模型|四层模型|重要的协议|    
+|:----:|:----:|:----:|    
 |应用层application layer<br>表示层presentation layer<br>会话层Session layer|应用层application layer|HTTP、HTTPS、FTP|   
-|传输层 transport layer<br>|传输层transport layer|TCP、UDP|
-|网络层 internet layer|网络层 internet layer|ICMP、IP、IGMP|
-|数据链路层 data link layer<br>物理层physical layer|链路层 link layer|ARP、RARP|
+|传输层 transport layer<br>|传输层transport layer|TCP、UDP|    
+|网络层 internet layer|网络层 internet layer|ICMP、IP、IGMP|    
+|数据链路层 data link layer<br>物理层physical layer|链路层 link layer|ARP、RARP|    
 
 ## 基本概念(对等通信、封装、分用、端口)
 ### 对等通信
@@ -55,14 +56,15 @@
 4. 对等层传输的数据我们可以把他看做是逻辑流
 
 ### 封装（encapsulation）
-1. 数据封装流程
-|步骤：||
-|:----:|:----:|
-|第一步|{用户数据}|
-|第二步|{app首部|用户数据}|
-|第三步|{TCP首部|app首部|用户数据}|
-|第四步|{IP首部|TCP首部|app首部|用户数据}|
-|第五步|{以太网首部（14字节 其中包含协议类型）|IP首部（20字节）|TCP首部（20字节）|app首部|用户数据|以太网尾部（4字节）}|
+1. 数据封装流程    
+
+|步骤：||    
+|:----:|:----:|    
+|第一步|{用户数据}|    
+|第二步|{app首部\|用户数据}|    
+|第三步|{TCP首部\|app首部\|用户数据}|    
+|第四步|{IP首部\|TCP首部\|app首部\|用户数据}|    
+|第五步|{以太网首部（14字节 其中包含协议类型）\|IP首部（20字节）\|TCP首部（20字节）\|app首部\|用户数据\|以太网尾部（4字节）}|
 
 2. 以太网帧的大小为46~1500字节
 
@@ -85,5 +87,23 @@
 4. IP不能标识一个主机上的应用程序，数据到达主机的时候如何区分数分用给那个应用程序呢？那这个时候就需要端口号来标识不同的应用程序。
 
 # 第二章
+## TCP/PI基础（二）
+
+### 最大传输单元（MTU）/路径MTU
+
+1. 以太网和IEEE 802.3对数据帧的长度都有限制，其最大值分别是1500和1492字节，将这个限制称做最大传输单元（MTU，Maximum Transmission Unit）。
+
+2. 如果IP层一个数据报要传，而且数据长度比链路层的MTU还大，那么IP层就要进行分片（fragmentation），把数据报分成若干片，这样每一片都小于MTU。
+
+
+3. 当网络上的两台主机相互通信时，两台主机要经过多个网络，每个网络可能有不同的MTU，其中两台通信主机路径中最小MTU被称作MTU。
+
+
+### 以太网帧格式
+
+
+### ICMP
+### ARP
+### RARP
 
 
