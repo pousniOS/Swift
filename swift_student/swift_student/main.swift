@@ -2,13 +2,15 @@
 //  main.swift
 //  swift_student
 //
-//  Created by apple on 12/11/2020.
-//  Copyright © 2020 apple. All rights reserved.
+//  Created by apple on 15/1/2021.
+//  Copyright © 2021 apple. All rights reserved.
 //
 
 import Foundation
+enum ENUM {
+    case test1,test2,test3,test4,test5
+}
 
-var value1:Int? = nil //盒子里面装的是nil
-var value2:Int?? = value1 //盒子里面装的是盒子1，盒子1装的是nil
-var value3:Int?? = nil // 是nil
-print("23235wet")
+var t = ENUM.test1
+print("Hello, World!")
+
