@@ -20,6 +20,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+   NSArray<NSString *> *identifiers = [NSLocale availableLocaleIdentifiers];
+    
     UIButton *but = UIButton.new;
     but.frame = CGRectMake(0, 0, 100, 100);
     but.backgroundColor = UIColor.blackColor;
