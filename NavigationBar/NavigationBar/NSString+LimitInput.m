@@ -15,7 +15,7 @@ static NSString* lowerCaseLetters(){
             @"a", @"s", @"d", @"f", @"g", @"h", @"j", @"k", @"l",
             @"z", @"x", @"c", @"v", @"b", @"n", @"m"
         ];
-        _lowerCaseLetters = [[@"[" stringByAppendingString:[lowerCaseLetters componentsJoinedByString:@""]] stringByAppendingString:@"]"];
+        _lowerCaseLetters = [lowerCaseLetters componentsJoinedByString:@""];
         
     });
     return _lowerCaseLetters;
@@ -30,7 +30,7 @@ static NSString* upperCaseLetter(){
             @"A", @"S", @"D", @"F", @"G", @"H", @"J", @"K", @"L",
             @"Z", @"X", @"C", @"V", @"B", @"N", @"M"
         ];
-        _upperCaseLetter = [[@"[" stringByAppendingString:[upperCaseLetter componentsJoinedByString:@""]] stringByAppendingString:@"]"];
+        _upperCaseLetter = [upperCaseLetter componentsJoinedByString:@""];
         
     });
     return _upperCaseLetter;
@@ -43,7 +43,7 @@ static NSString* number(){
         NSArray *number = @[
             @"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"0"
         ];
-        _number = [[@"[" stringByAppendingString:[number componentsJoinedByString:@""]] stringByAppendingString:@"]"];
+        _number = [number componentsJoinedByString:@""];
     });
     return _number;
 }
@@ -57,7 +57,7 @@ static NSString* englishPunctuation(){
             @"-", @"\+", @"=", @"{", @"}", @"\[", @"]", @"\\", @"\|", @"<" , @">" , @",", @"\.",
             @"/", @"\?", @";", @":", @"'", @"\"", @" "
         ];
-        _englishPunctuation = [[@"[" stringByAppendingString:[englishPunctuation componentsJoinedByString:@""]] stringByAppendingString:@"]"];
+        _englishPunctuation = [englishPunctuation componentsJoinedByString:@""];
     });
     return _englishPunctuation;
 }
@@ -68,11 +68,16 @@ static NSString* otherPunctuation(){
     dispatch_once(&onceToken, ^{
         NSArray *otherPunctuation = @[
         ];
-        _otherPunctuation = [[@"[" stringByAppendingString:[otherPunctuation componentsJoinedByString:@""]] stringByAppendingString:@"]"];
+        _otherPunctuation = [otherPunctuation componentsJoinedByString:@""];
     });
     return _otherPunctuation;
 }
 
 @implementation NSString (LimitInput)
+
+-(BOOL)isValid{
+    NSPredicate *predicate1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"[[a-z ]&&[^acdkn]]+"];
+    return [predicate1 evaluateWithObject:self]
+}
 
 @end
