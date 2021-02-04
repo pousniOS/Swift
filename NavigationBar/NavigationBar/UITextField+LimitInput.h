@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "LimitInput.h"
-
 @interface UITextField (Category)
 @property(nonatomic,assign)AvailableCharacterSet availableCharacterSet;
 @property(nonatomic,copy)NSString *lastString;

@@ -17,9 +17,6 @@ static char UITextFieldTextLastStringKey;
 -(void)setAvailableCharacterSet:(AvailableCharacterSet)availableCharacterSet{
     objc_setAssociatedObject(self, &UITextFieldAvailableCharacterSetKey, @(availableCharacterSet), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
--(BOOL)isValid:(NSString *)string{
-    return NO;
-}
 -(NSString*)lastString{
     return objc_getAssociatedObject(self, &UITextFieldTextLastStringKey);
 }

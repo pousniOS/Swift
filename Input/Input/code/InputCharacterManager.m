@@ -7,6 +7,7 @@
 
 #import "InputCharacterManager.h"
 #import "LimitInput.h"
+#import "UITextField+LimitInput.h"
 
 
 static NSString* lowerCaseLetters(){
@@ -76,6 +77,14 @@ static NSString* otherPunctuation(){
     return _otherPunctuation;
 }
 
+static dispatch_queue_t checkQueue(){
+    static dispatch_queue_t _check_queue_t = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _check_queue_t = dispatch_queue_create("_check_queue_t", DISPATCH_QUEUE_SERIAL);
+    });
+    return _check_queue_t;
+}
 
 @interface InputCharacterManager()
 @property(nonatomic,strong)NSMutableDictionary<NSNumber*,NSPredicate*> *predicates;
@@ -127,31 +136,47 @@ static NSString* otherPunctuation(){
 }
 -(NSPredicate *)getPredicateWithCharacterSet:(AvailableCharacterSet)set{
     NSPredicate *predicate = _predicates[@(set)];
+    if (predicate) {
+        return predicate;
+    }
+    if (set == AvailableCharacterSetAll) {
+        return nil;
+    }
+    NSString *chars = @"";
+    if (set&AvailableCharacterSetLowerCaseLetters){
+        chars = [chars stringByAppendingString:lowerCaseLetters()];
+    }
+    if (set&AvailableCharacterSetUpperCaseLetter){
+        chars = [chars stringByAppendingString:upperCaseLetter()];
+    }
+    if (set&AvailableCharacterSetNumber){
+        chars = [chars stringByAppendingString:number()];
+    }
+    if (set&AvailableCharacterSetEnglishPunctuation){
+        chars = [chars stringByAppendingString:englishPunctuation()];
+    }
+    if (set&AvailableCharacterSetOtherPunctuation){
+        chars = [chars stringByAppendingString:otherPunctuation()];
+    }
+    _predicates[@(set)] = [NSPredicate predicateWithFormat:@"SELFMATCHES %@",chars];
     return _predicates[@(set)];
 }
 -(BOOL)isValidWithString:(NSString *)string andAvailableCharacterSet:(AvailableCharacterSet)set{
-    
-    
-    if (set&AvailableCharacterSetLowerCaseLetters){
-
-    }else if (set&AvailableCharacterSetUpperCaseLetter){
-        
-    }else if (set&AvailableCharacterSetNumber){
-        
-    }else if (set&AvailableCharacterSetEnglishPunctuation){
-        
-    }else if (set&AvailableCharacterSetOtherPunctuation){
-
-    }else if (set&AvailableCharacterSetAll){
-        
+    if (set == AvailableCharacterSetAll) {
+        return YES;
     }
-    return YES;
+    return [[self getPredicateWithCharacterSet:set] evaluateWithObject:string];
 }
 -(void)didBeginEditing:(NSNotification *)sender{
     
 }
 -(void)didEndEditing:(NSNotification *)sender{
     
+    sender.object;
+    
+    dispatch_async(checkQueue(), ^{
+        
+    });
 }
 -(void)didChange:(NSNotification *)sender{
 }

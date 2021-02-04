@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		040A099925CBE81F00DE6F00 /* InputCharacterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 040A099825CBE81F00DE6F00 /* InputCharacterManager.m */; };
-		040A09A225CBF98100DE6F00 /* UITextField+LimitInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 040A09A025CBF98100DE6F00 /* UITextField+LimitInput.m */; };
-		040A09A825CBF9B600DE6F00 /* NSString+LimitInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 040A09A725CBF9B600DE6F00 /* NSString+LimitInput.m */; };
 		0484D3B825B6C7F900F35097 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0484D3B725B6C7F900F35097 /* AppDelegate.m */; };
 		0484D3BB25B6C7F900F35097 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0484D3BA25B6C7F900F35097 /* SceneDelegate.m */; };
 		0484D3BE25B6C7F900F35097 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0484D3BD25B6C7F900F35097 /* ViewController.m */; };
@@ -19,6 +17,7 @@
 		0484D3C925B6C7FB00F35097 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0484D3C825B6C7FB00F35097 /* main.m */; };
 		0484D3D325B6C7FB00F35097 /* NavigationBarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0484D3D225B6C7FB00F35097 /* NavigationBarTests.m */; };
 		0484D3DE25B6C7FB00F35097 /* NavigationBarUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0484D3DD25B6C7FB00F35097 /* NavigationBarUITests.m */; };
+		18047D0C25CC4FF600F209B8 /* UITextField+LimitInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 18047D0A25CC4FF600F209B8 /* UITextField+LimitInput.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,10 +41,6 @@
 		040A099325CBDE2000DE6F00 /* LimitInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LimitInput.h; sourceTree = "<group>"; };
 		040A099725CBE81F00DE6F00 /* InputCharacterManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputCharacterManager.h; sourceTree = "<group>"; };
 		040A099825CBE81F00DE6F00 /* InputCharacterManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputCharacterManager.m; sourceTree = "<group>"; };
-		040A09A025CBF98100DE6F00 /* UITextField+LimitInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+LimitInput.m"; sourceTree = SOURCE_ROOT; };
-		040A09A125CBF98100DE6F00 /* UITextField+LimitInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+LimitInput.h"; sourceTree = SOURCE_ROOT; };
-		040A09A625CBF9B600DE6F00 /* NSString+LimitInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+LimitInput.h"; sourceTree = "<group>"; };
-		040A09A725CBF9B600DE6F00 /* NSString+LimitInput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+LimitInput.m"; sourceTree = "<group>"; };
 		0484D3B325B6C7F900F35097 /* NavigationBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NavigationBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0484D3B625B6C7F900F35097 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0484D3B725B6C7F900F35097 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -64,6 +59,8 @@
 		0484D3D925B6C7FB00F35097 /* NavigationBarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NavigationBarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0484D3DD25B6C7FB00F35097 /* NavigationBarUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationBarUITests.m; sourceTree = "<group>"; };
 		0484D3DF25B6C7FB00F35097 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18047D0A25CC4FF600F209B8 /* UITextField+LimitInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+LimitInput.m"; sourceTree = "<group>"; };
+		18047D0B25CC4FF600F209B8 /* UITextField+LimitInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+LimitInput.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,10 +111,8 @@
 		0484D3B525B6C7F900F35097 /* NavigationBar */ = {
 			isa = PBXGroup;
 			children = (
-				040A09A625CBF9B600DE6F00 /* NSString+LimitInput.h */,
-				040A09A725CBF9B600DE6F00 /* NSString+LimitInput.m */,
-				040A09A125CBF98100DE6F00 /* UITextField+LimitInput.h */,
-				040A09A025CBF98100DE6F00 /* UITextField+LimitInput.m */,
+				18047D0B25CC4FF600F209B8 /* UITextField+LimitInput.h */,
+				18047D0A25CC4FF600F209B8 /* UITextField+LimitInput.m */,
 				040A099325CBDE2000DE6F00 /* LimitInput.h */,
 				040A099725CBE81F00DE6F00 /* InputCharacterManager.h */,
 				040A099825CBE81F00DE6F00 /* InputCharacterManager.m */,
@@ -291,8 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				040A09A225CBF98100DE6F00 /* UITextField+LimitInput.m in Sources */,
-				040A09A825CBF9B600DE6F00 /* NSString+LimitInput.m in Sources */,
+				18047D0C25CC4FF600F209B8 /* UITextField+LimitInput.m in Sources */,
 				040A099925CBE81F00DE6F00 /* InputCharacterManager.m in Sources */,
 				0484D3BE25B6C7F900F35097 /* ViewController.m in Sources */,
 				0484D3B825B6C7F900F35097 /* AppDelegate.m in Sources */,
