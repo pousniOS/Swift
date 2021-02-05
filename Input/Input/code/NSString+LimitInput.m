@@ -84,7 +84,8 @@ static NSString* englishPunctuation(){
             @":",
             @"'",
             @"\"",
-            @" "
+            @" ",
+            @"\\n"
         ];
         _englishPunctuation = [englishPunctuation componentsJoinedByString:@""];
     });

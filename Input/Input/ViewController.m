@@ -61,7 +61,7 @@
     
     UITextView *textView = UITextView.new;
     textView.layer.borderColor = UIColor.redColor.CGColor;
-    textView.layer.borderWidth = 1.0f;    textView.availableCharacterSet = AvailableCharacterSetNumber;
+    textView.layer.borderWidth = 1.0f;    textView.availableCharacterSet = AvailableCharacterSetNumber|AvailableCharacterSetEnglishPunctuation;
     textView.frame = CGRectMake(5, y, 200, 300);
     [self.view addSubview:textView];
 }
