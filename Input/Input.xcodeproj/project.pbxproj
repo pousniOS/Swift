@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04205CDD25CCFA41002F8541 /* UITextView+LimitInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 04205CDC25CCFA41002F8541 /* UITextView+LimitInput.m */; };
+		04205CE525CD2A47002F8541 /* NSString+LimitInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 04205CE425CD2A47002F8541 /* NSString+LimitInput.m */; };
 		18047D1B25CC502E00F209B8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18047D1A25CC502E00F209B8 /* AppDelegate.m */; };
 		18047D1E25CC502E00F209B8 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18047D1D25CC502E00F209B8 /* SceneDelegate.m */; };
 		18047D2125CC502E00F209B8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18047D2025CC502E00F209B8 /* ViewController.m */; };
@@ -16,7 +18,6 @@
 		18047D2C25CC503200F209B8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18047D2B25CC503200F209B8 /* main.m */; };
 		18047D3625CC503200F209B8 /* InputTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18047D3525CC503200F209B8 /* InputTests.m */; };
 		18047D4125CC503200F209B8 /* InputUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18047D4025CC503200F209B8 /* InputUITests.m */; };
-		18047D5425CC507900F209B8 /* InputCharacterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18047D5025CC507900F209B8 /* InputCharacterManager.m */; };
 		18047D5525CC507900F209B8 /* UITextField+LimitInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 18047D5125CC507900F209B8 /* UITextField+LimitInput.m */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04205CDB25CCFA41002F8541 /* UITextView+LimitInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+LimitInput.h"; sourceTree = "<group>"; };
+		04205CDC25CCFA41002F8541 /* UITextView+LimitInput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextView+LimitInput.m"; sourceTree = "<group>"; };
+		04205CE325CD2A47002F8541 /* NSString+LimitInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+LimitInput.h"; sourceTree = "<group>"; };
+		04205CE425CD2A47002F8541 /* NSString+LimitInput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+LimitInput.m"; sourceTree = "<group>"; };
 		18047D1625CC502E00F209B8 /* Input.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Input.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18047D1925CC502E00F209B8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		18047D1A25CC502E00F209B8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -57,10 +62,8 @@
 		18047D4025CC503200F209B8 /* InputUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputUITests.m; sourceTree = "<group>"; };
 		18047D4225CC503200F209B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18047D4F25CC507900F209B8 /* LimitInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LimitInput.h; sourceTree = "<group>"; };
-		18047D5025CC507900F209B8 /* InputCharacterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputCharacterManager.m; sourceTree = "<group>"; };
 		18047D5125CC507900F209B8 /* UITextField+LimitInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+LimitInput.m"; sourceTree = "<group>"; };
 		18047D5225CC507900F209B8 /* UITextField+LimitInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+LimitInput.h"; sourceTree = "<group>"; };
-		18047D5325CC507900F209B8 /* InputCharacterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputCharacterManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,10 +152,12 @@
 			isa = PBXGroup;
 			children = (
 				18047D4F25CC507900F209B8 /* LimitInput.h */,
-				18047D5325CC507900F209B8 /* InputCharacterManager.h */,
-				18047D5025CC507900F209B8 /* InputCharacterManager.m */,
 				18047D5225CC507900F209B8 /* UITextField+LimitInput.h */,
 				18047D5125CC507900F209B8 /* UITextField+LimitInput.m */,
+				04205CDB25CCFA41002F8541 /* UITextView+LimitInput.h */,
+				04205CDC25CCFA41002F8541 /* UITextView+LimitInput.m */,
+				04205CE325CD2A47002F8541 /* NSString+LimitInput.h */,
+				04205CE425CD2A47002F8541 /* NSString+LimitInput.m */,
 			);
 			path = code;
 			sourceTree = "<group>";
@@ -289,10 +294,11 @@
 			files = (
 				18047D5525CC507900F209B8 /* UITextField+LimitInput.m in Sources */,
 				18047D2125CC502E00F209B8 /* ViewController.m in Sources */,
+				04205CE525CD2A47002F8541 /* NSString+LimitInput.m in Sources */,
 				18047D1B25CC502E00F209B8 /* AppDelegate.m in Sources */,
 				18047D2C25CC503200F209B8 /* main.m in Sources */,
 				18047D1E25CC502E00F209B8 /* SceneDelegate.m in Sources */,
-				18047D5425CC507900F209B8 /* InputCharacterManager.m in Sources */,
+				04205CDD25CCFA41002F8541 /* UITextView+LimitInput.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,20 +8,35 @@
  
 #import "UITextField+LimitInput.h"
 #import <objc/runtime.h>
+#import "NSString+LimitInput.h"
 static char UITextFieldAvailableCharacterSetKey;
-static char UITextFieldTextLastStringKey;
 @implementation UITextField (Category)
+
++(void)load{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [self methodExchange];
+    });
+}
 -(AvailableCharacterSet)availableCharacterSet{
-    return [objc_getAssociatedObject(self, &UITextFieldAvailableCharacterSetKey) boolValue];
+    return [objc_getAssociatedObject(self, &UITextFieldAvailableCharacterSetKey) integerValue];
 }
 -(void)setAvailableCharacterSet:(AvailableCharacterSet)availableCharacterSet{
     objc_setAssociatedObject(self, &UITextFieldAvailableCharacterSetKey, @(availableCharacterSet), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
--(NSString*)lastString{
-    return objc_getAssociatedObject(self, &UITextFieldTextLastStringKey);
++(void)methodExchange{
+    SEL textFiledSEL = NSSelectorFromString(@"_delegateShouldChangeCharactersInTextStorageRange:replacementString:delegateCares:");
+    Method textFiledMethod = class_getInstanceMethod(UITextField.class, textFiledSEL);
+    Method exTextFiledMethod = class_getInstanceMethod([self class], @selector(_ex_delegateShouldChangeCharactersInTextStorageRange:replacementString:delegateCares:));
+    method_exchangeImplementations(textFiledMethod, exTextFiledMethod);
 }
--(void)setLastString:(NSString *)lastString{
-    objc_setAssociatedObject(self, &UITextFieldTextLastStringKey, lastString, OBJC_ASSOCIATION_COPY_NONATOMIC);
+-(BOOL)_ex_delegateShouldChangeCharactersInTextStorageRange:(NSRange)range replacementString:text delegateCares:(BOOL *)cares{
+
+    BOOL result = [self _ex_delegateShouldChangeCharactersInTextStorageRange:range replacementString:text delegateCares:cares];
+    if (result == YES && self.availableCharacterSet != AvailableCharacterSetAll) {
+        return [text isValidWithAvailableCharacterSet:self.availableCharacterSet];
+    }
+    return result;
 }
 @end
 
