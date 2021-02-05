@@ -25,6 +25,9 @@ static char UITextViewAvailableCharacterSetKey;
 }
 +(void)methodExchange{
     SEL textViewSEL = NSSelectorFromString(@"keyboardInput:shouldInsertText:isMarkedText:");
+    if ([UITextField.new respondsToSelector:textViewSEL] == NO) {
+        return;
+    }
     Method textViewMethod = class_getInstanceMethod(UITextView.class, textViewSEL);
     Method exTextViewMethod = class_getInstanceMethod([self class], @selector(ex_keyboardInput:shouldInsertText:isMarkedText:));
     method_exchangeImplementations(textViewMethod, exTextViewMethod);

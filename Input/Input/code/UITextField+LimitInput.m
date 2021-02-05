@@ -26,6 +26,10 @@ static char UITextFieldAvailableCharacterSetKey;
 }
 +(void)methodExchange{
     SEL textFiledSEL = NSSelectorFromString(@"_delegateShouldChangeCharactersInTextStorageRange:replacementString:delegateCares:");
+    if ([UITextField.new respondsToSelector:textFiledSEL] == NO) {
+        return;
+    }
+
     Method textFiledMethod = class_getInstanceMethod(UITextField.class, textFiledSEL);
     Method exTextFiledMethod = class_getInstanceMethod([self class], @selector(_ex_delegateShouldChangeCharactersInTextStorageRange:replacementString:delegateCares:));
     method_exchangeImplementations(textFiledMethod, exTextFiledMethod);
