@@ -18,16 +18,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
     
-   NSArray<NSString *> *identifiers = [NSLocale availableLocaleIdentifiers];
-    
-    UIButton *but = UIButton.new;
-    but.frame = CGRectMake(0, 0, 100, 100);
-    but.backgroundColor = UIColor.blackColor;
-    [self.view addSubview:but];
-    [but addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
-    
+
 }
 -(void)buttonAction:(UIButton *)sender{
     [self pustTest];
@@ -104,6 +97,4 @@
 -(void)dealloc{
     pthread_mutex_unlock(&self->_lock);
 }
-
-
 @end
