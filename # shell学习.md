@@ -233,4 +233,30 @@ A-Z或[:upper:] 匹配所有大写字母
 {string1,string2....}   匹配string1、string2或更多字符
 
 ```
+### 4. bash中的引号（**重点**）
+* 双引号""：会把引号的内容当整体来看待，允许通过$符号引用其他变量值
+* 单引号'' ：会把引号的内容当整体来看待，禁止引用其他变量值，shell中特殊符号都被视为普通字符
+* 反撇号`` ：反撇号和$()一样，引号或者括号里的的命令优先执行，如果存在嵌套，反撇号不能用
 
+```
+macdeMac-mini-2:desktop mac$ echo "$(hostname)"
+macdeMac-mini-2.local
+
+macdeMac-mini-2:desktop mac$ echo '$(hostname)'
+$(hostname)
+
+macdeMac-mini-2:desktop mac$ echo "hello world"
+hello world
+
+macdeMac-mini-2:desktop mac$ echo 'hello world'
+hello world
+
+macdeMac-mini-2:desktop mac$ echo `date +%F`
+2021-03-02
+
+macdeMac-mini-2:desktop mac$ echo "`date +%F`"
+2021-03-02
+
+```
+
+## shell编程模块课程目标
