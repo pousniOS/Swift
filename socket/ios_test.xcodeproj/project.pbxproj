@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04711FA425F0B7F900404664 /* Server_1.c in Sources */ = {isa = PBXBuildFile; fileRef = 04711FA325F0B7F900404664 /* Server_1.c */; };
+		04711FAA25F0D9CB00404664 /* Client_1.c in Sources */ = {isa = PBXBuildFile; fileRef = 04711FA925F0D9CB00404664 /* Client_1.c */; };
 		18486C5324EAB0680058246E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18486C5224EAB0680058246E /* AppDelegate.m */; };
 		18486C5624EAB0680058246E /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18486C5524EAB0680058246E /* SceneDelegate.m */; };
 		18486C5924EAB0680058246E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18486C5824EAB0680058246E /* ViewController.m */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04711FA325F0B7F900404664 /* Server_1.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Server_1.c; sourceTree = "<group>"; };
+		04711FA925F0D9CB00404664 /* Client_1.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Client_1.c; sourceTree = "<group>"; };
 		18486C4E24EAB0680058246E /* ios_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18486C5124EAB0680058246E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		18486C5224EAB0680058246E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -149,6 +153,8 @@
 			children = (
 				1853EABF25EEA70200F9C048 /* server.c */,
 				1853EAC025EEA70200F9C048 /* Client.c */,
+				04711FA325F0B7F900404664 /* Server_1.c */,
+				04711FA925F0D9CB00404664 /* Client_1.c */,
 			);
 			path = socket_1;
 			sourceTree = "<group>";
@@ -285,8 +291,10 @@
 			files = (
 				1853EAC125EEA70200F9C048 /* server.c in Sources */,
 				18486C5924EAB0680058246E /* ViewController.m in Sources */,
+				04711FAA25F0D9CB00404664 /* Client_1.c in Sources */,
 				18486C5324EAB0680058246E /* AppDelegate.m in Sources */,
 				1853EAC525EFBF0600F9C048 /* Test.m in Sources */,
+				04711FA425F0B7F900404664 /* Server_1.c in Sources */,
 				18486C5624EAB0680058246E /* SceneDelegate.m in Sources */,
 				1853EAC225EEA70200F9C048 /* Client.c in Sources */,
 			);

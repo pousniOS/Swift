@@ -49,6 +49,8 @@ int main(void){
     if ((conn = accept(listenfd,(struct sockaddr*)&peeraddr,&peerlen))<0){
         printf("accept\n");
     }
+    
+    
     printf("accept...\n");
 
     char recvbuf[1024];

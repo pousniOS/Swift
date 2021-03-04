@@ -117,12 +117,6 @@
         }
     });
     
-    Test<NSArray *> *test= Test.new;
-    test.query(NSThread.currentThread,nil ,^(NSArray *data){
-        
-    }).opertion(NSThread.currentThread,^(NSArray* data){
-        
-    });
 }
 
 
