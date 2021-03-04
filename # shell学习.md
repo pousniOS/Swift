@@ -259,7 +259,7 @@ macdeMac-mini-2:desktop mac$ echo "`date +%F`"
 
 ```
 
-## shell编程模块课程目标
+# shell编程模块课程目标
 * 1. shell的基本语法结构
    如：变量定义、条件判断、循环语句（for,until、while）、分支语句，函数和数组等；
   2. 基本正则表达式的运用；
@@ -271,12 +271,12 @@ macdeMac-mini-2:desktop mac$ echo "`date +%F`"
 - 熟练掌握shell变量的定义和获取（重点）
 - 能够进行shell简单的四则运算
 
-### shell介绍
+## 一、shell介绍
 **前言：**
 
 计算机能认识识别机器语言（0和1），如（11000000这种）。但是我们程序员不能直接去写01这样的代码，所以想要将程序员编写的代码运行在计算机上，就必须找"人"（工具）来翻译成机器语言，这个"人"（工具）就是我们所说的编译和解释器。
 
-#### 1.编译语言的分类
+### 1.编译语言的分类
 1. *编译型语言：*
    程序执行前需要一个专门的编译过程，把程序编译成机器语言文件，运行时不需要重新翻译，直接使用编译的结果就行。程序执行效率高，依赖编译器，跨平台性差些。如c、c++
 
@@ -286,7 +286,7 @@ macdeMac-mini-2:desktop mac$ echo "`date +%F`"
 **总结**
   编译型语言比解释型语言快，但不如解释型语言跨平台性好。如果做底层开发或者做大型应用或者操作系统一般选择编译型语言；如果是一些服务器脚本以及一些辅助的接口，对速度要求不高、对各个平台的兼容性有要求的话则一般用解释型语言。
   
-  #### 2. shell介绍
+  ### 2. shell介绍
   > shell介于用户与内核之间，负责命令的解释
   
   *总结*
@@ -315,7 +315,7 @@ apple@appledeMBP ~ % ps
 33219 ttys000    0:00.04 -zsh
 ```
 
-#### 3. shell脚本
+### 3. shell脚本
 
 **（一）什么是shell脚本？**
 
@@ -372,9 +372,70 @@ apple@appledeMBP ~ % ps
 1. 标准脚本执行方法（建议）
 
 ```
+apple@appledeMBP shell_test % ./first.sh  
+
 注意：标准执行方式脚本必须要有可执行权限
 ```
 
 2. 非标准的执行方式（不建议）
+* 直接在命令行指定解释器行
+```
+apple@appledeMBP shell_test % bash first.sh
 
+-x：一般用于排错，查看脚本的执行过程
 
+apple@appledeMBP shell_test % bash -x first.sh
++ echo 'Hello world'
+Hello world
++ echo 'Hello world'
+Hello world
++ echo 'Hello world'
+Hello world
+
+-n：用来查看脚本的语法是否有问题
+
+apple@appledeMBP shell_test % bash -n first.sh
+
+```
+
+3. 使用source命令读取脚本文件，执行文件里的代码
+```
+apple@appledeMBP shell_test % source first.sh   
+
+```
+**小试牛刀：**写一个没有灵魂的脚本，要求如下：
+
+1. 删除/tmp目录下的所有文件 rm -rf /tmp/*
+2. 然后在/tmp目录里创建三个目录，分别是dir1~dir3 mkdir /tmp/dir{1..3}
+3. 拷贝etc/hosts文件到刚创建的dir1目录里 cp /etc/hosts /tmp/dir
+4. 最后打印"任务于YYYY-MM-DD hh-mm-ss 完成" echo "任务于$(date + %F %T)"
+
+## 二、变量的定义
+
+### 1. 变量是什么？
+> 变量是用来保存临时数据，该数据是可以变化的数据。
+
+### 2. 什么时候需要定义变量？
+* 如果某个内容需要多次使用，并且在代码中重复出现，那么可以用变量代表该内容。这样在修改内容时，仅仅需要修改变量的值。
+* 在代码的运行中，可能需要把某些命令执行的结果保存下来，后续代码需要使用这些结果，就可以直接使用这个变量。
+
+### 3. 变量如何定义？
+**变量名=变量值**
+
+变量名：用来临时保存数据
+变量值：临时的可变化的数据
+
+```
+apple@appledeMBP shell_test % A=hello //定义变量A
+apple@appledeMBP shell_test % echo $A
+hello
+apple@appledeMBP shell_test % echo ${A}
+hello
+apple@appledeMBP shell_test % unset A //取消变量
+
+```
+
+### 4. 变量的定义规则
+> 虽然可以给变量赋予任何值；但是对于变量名也是有要求的
+
+1. 变量名区分大小写
