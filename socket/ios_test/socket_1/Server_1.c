@@ -20,6 +20,12 @@ void do_service(int conn){
     while (1) {
         memset(recvbuf, 0, sizeof(recvbuf));
         size_t ret = read(conn, recvbuf, sizeof(recvbuf));
+        if (ret == 0) {//说明客户端关闭了
+            printf("client_close\n");
+            break;
+        }else if (ret == -1){
+            _exit(-1);
+        }
         fputs(recvbuf, stdout);
         write(conn, recvbuf, ret);
     }
@@ -84,6 +90,7 @@ int main(void){
         if (pid == 0) {
             close(l);
             do_service(conn);
+            _exit(0);
         }else{
             close(conn);
         }
