@@ -439,3 +439,120 @@ apple@appledeMBP shell_test % unset A //取消变量
 > 虽然可以给变量赋予任何值；但是对于变量名也是有要求的
 
 1. 变量名区分大小写
+2. 变量名不能有特殊字符
+3. 不能以数字开头
+4. 等号两边不能有任何空格
+5. 变量名尽量做到见名识意
+
+### 5. 变量的定义方式有哪些？
+
+1. 基本方式
+> 直接赋值给一个变量
+
+```
+apple@appledeMacBook-Pro ~ % A=123456
+apple@appledeMacBook-Pro ~ % echo $A
+123456
+apple@appledeMacBook-Pro ~ % echo ${A}
+123456
+apple@appledeMacBook-Pro ~ % echo ${A:2:3} //表示从A变量第三个字符开始截取3个字符
+345
+
+
+说明：
+$变量名和${变量名}的异同
+相同点：都可以调用变量
+不同点：${变量名}可以只截取变量的一部分，而$变量名不可以
+
+```
+
+2. 命令执行结果赋值给变量
+
+```
+apple@appledeMacBook-Pro ~ % A=`hostname`
+apple@appledeMacBook-Pro ~ % echo $A
+appledeMacBook-Pro.local
+
+apple@appledeMacBook-Pro ~ % B=$(uname -r)
+apple@appledeMacBook-Pro ~ % echo $B
+19.6.0
+
+
+```
+
+3. 交互式定义变量（read）
+**目的：** 让用户自己给变量赋值，比较灵活
+**语法：** read [选项] 变量名
+
+**常见选项：**
+```
+-p 定义提示用户的信息
+-n 定义字符数（限制变量值的长度）
+-s 不显示（用户输入的内容）
+-t 定义超时时间，默认单位为秒（限制用户输入变量的超时时间）
+
+```
+
+**举例说明：**
+```
+用法一：用户自己定义变量值
+apple@appledeMacBook-Pro ~ % read name
+harry
+
+apple@appledeMacBook-Pro ~ % bash read -p "Input your name:" name
+Input your name:gggg
+
+apple@appledeMacBook-Pro ~ % bash read -s -p "Input your password"
+Input your password%    
+
+apple@appledeMacBook-Pro ~ % bash read  -n 5 -p "Input your name:" name
+Input your name:12345%
+
+apple@appledeMacBook-Pro ~ % bash read -t 3 -p "name:" name 
+name:%
+
+用法二：变量值来自文件
+
+apple@appledeMacBook-Pro shell_test % read IP < ./ip.txt
+apple@appledeMacBook-Pro shell_test % echo $IP              
+10.1.1.1
+```
+
+4. 定义有类型的变量（declare）
+**目的：** 给变量做一些限制，固定变量的类型，比如：整形、只读
+**用法：** declare 选项 变量名=变量值
+**常用选项：**
+
+|选项|意思|例子|
+|:-:|:-:|:-:|
+| -i |将变量看成整形 | declare -i A=123 |
+| -r |定义只读变量|declare -r B=hello|
+| -a |定义普通数组、查看普通数组 |  |
+| -A |定义关联数组、查看关联数组 |  |
+| -x | 将变量通过环境导出 | declard -x AAA=123456 等于 export AAA=123456 |
+
+**举例说明**
+
+```
+apple@appledeMacBook-Pro shell_test % declare -i A=123
+apple@appledeMacBook-Pro shell_test % echo $A         
+123
+
+apple@appledeMacBook-Pro shell_test % declare -r B='hello world'
+apple@appledeMacBook-Pro shell_test % echo $B
+hello world
+
+```
+
+### 6. 变量的分类
+1. 本地变量
+> **本地变量：** 当前用户定义的变量。当前进程中有效，其他进程及进程的子进程无效。
+
+2. 环境变量
+> **环境变量：** 当前进程有效，并且能被子进程调用。
+
++ env查看当前用户的环境变量
++ set 查询当前用户的所有变量（临时变量与环境变量）
++ export 变量名=变量值 或者 变量名=变量值；export 变量名
+
+
