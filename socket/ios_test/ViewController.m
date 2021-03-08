@@ -21,6 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    CALayer *layer = nil;
 
     CGFloat top = 64;
     CGFloat width = self.view.frame.size.width;
