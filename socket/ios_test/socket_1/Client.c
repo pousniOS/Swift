@@ -15,8 +15,7 @@ int main(void){
 //        _Exit(1);
     }
     printf("socket...\n");
-
-
+    
     struct sockaddr_in servaddr;
     memset(&servaddr,0,sizeof(servaddr));
     servaddr.sin_family = AF_INET;
