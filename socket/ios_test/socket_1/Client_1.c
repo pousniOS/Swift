@@ -13,6 +13,41 @@
 #include <string.h>
 #include <unistd.h>
 #include <string.h>
+
+ssize_t readn(int fd, void *buf, size_t count){
+    size_t nleft = count;
+    size_t nread;
+    char *bufp = (char *)buf;
+    
+    while (nleft>0) {
+        if ((nread = read(fd, buf, nleft))<0) {
+            return -1;
+        }else if (nread == 0)
+            return  count - nleft;
+
+        bufp += nread;
+        nleft -= nread;
+    }
+    return count;
+}
+
+ssize_t writen(int fd, void *buf, size_t count){
+    size_t nwcount = count;
+    size_t awcount;
+    char *wbuf = (char *)buf;
+    while (nwcount>0) {
+        if ((awcount = write(fd, wbuf, nwcount))<0) {
+            return -1;
+        }else if (awcount == 0)
+            return count-nwcount;
+        
+        nwcount -= awcount;
+        wbuf += nwcount;
+    }
+    return count;
+}
+
+
 int main(void){
     int st = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
     if (st<0) {
