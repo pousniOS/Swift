@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		04711FA425F0B7F900404664 /* Server_1.c in Sources */ = {isa = PBXBuildFile; fileRef = 04711FA325F0B7F900404664 /* Server_1.c */; };
 		04711FAA25F0D9CB00404664 /* Client_1.c in Sources */ = {isa = PBXBuildFile; fileRef = 04711FA925F0D9CB00404664 /* Client_1.c */; };
+		1819A4A025F3AA2900D59E90 /* Client_2.c in Sources */ = {isa = PBXBuildFile; fileRef = 1819A49E25F3AA2900D59E90 /* Client_2.c */; };
+		1819A4A125F3AA2900D59E90 /* Server_2.c in Sources */ = {isa = PBXBuildFile; fileRef = 1819A49F25F3AA2900D59E90 /* Server_2.c */; };
 		18486C5324EAB0680058246E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18486C5224EAB0680058246E /* AppDelegate.m */; };
 		18486C5624EAB0680058246E /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18486C5524EAB0680058246E /* SceneDelegate.m */; };
 		18486C5924EAB0680058246E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18486C5824EAB0680058246E /* ViewController.m */; };
@@ -42,6 +44,8 @@
 /* Begin PBXFileReference section */
 		04711FA325F0B7F900404664 /* Server_1.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Server_1.c; sourceTree = "<group>"; };
 		04711FA925F0D9CB00404664 /* Client_1.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Client_1.c; sourceTree = "<group>"; };
+		1819A49E25F3AA2900D59E90 /* Client_2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Client_2.c; sourceTree = "<group>"; };
+		1819A49F25F3AA2900D59E90 /* Server_2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Server_2.c; sourceTree = "<group>"; };
 		18486C4E24EAB0680058246E /* ios_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18486C5124EAB0680058246E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		18486C5224EAB0680058246E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -151,6 +155,8 @@
 		1853EABE25EEA70200F9C048 /* socket_1 */ = {
 			isa = PBXGroup;
 			children = (
+				1819A49E25F3AA2900D59E90 /* Client_2.c */,
+				1819A49F25F3AA2900D59E90 /* Server_2.c */,
 				1853EABF25EEA70200F9C048 /* server.c */,
 				1853EAC025EEA70200F9C048 /* Client.c */,
 				04711FA325F0B7F900404664 /* Server_1.c */,
@@ -294,7 +300,9 @@
 				04711FAA25F0D9CB00404664 /* Client_1.c in Sources */,
 				18486C5324EAB0680058246E /* AppDelegate.m in Sources */,
 				1853EAC525EFBF0600F9C048 /* Test.m in Sources */,
+				1819A4A025F3AA2900D59E90 /* Client_2.c in Sources */,
 				04711FA425F0B7F900404664 /* Server_1.c in Sources */,
+				1819A4A125F3AA2900D59E90 /* Server_2.c in Sources */,
 				18486C5624EAB0680058246E /* SceneDelegate.m in Sources */,
 				1853EAC225EEA70200F9C048 /* Client.c in Sources */,
 			);
