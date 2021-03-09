@@ -600,7 +600,7 @@ hello world
 算术运算：默认情况下，shell也能支持简单的整数运算
 运算内容：+（加）、-（减）、*（乘）、/（除）、%（余数）、**（次幂）
 
-1. 四则运算符号
+### 1. 四则运算符号
 
 | 表达式 | 举例 |
 | :-: | :-: |
@@ -609,5 +609,149 @@ hello world
 | expr | echo 10 / 5 |
 | let | n=1;let n+=1 等价于 let n=n+1 |
 
-2. 了解i++和++i
+可以使用bc命令来做计算：
+```
+apple@appledeMBP ~ % bc
+bc 1.06
+Copyright 1991-1994, 1997, 1998, 2000 Free Software Foundation, Inc.
+This is free software with ABSOLUTELY NO WARRANTY.
+For details type `warranty'. 
+3^3
+27
+
+```
+
+### 2. 了解i++和++i
+
++ 对变量值的影响
+```
+apple@appledeMBP ~ % i=1
+apple@appledeMBP ~ % let i++
+apple@appledeMBP ~ % echo $i
+2
+
+apple@appledeMBP ~ % j=1
+apple@appledeMBP ~ % let ++j
+apple@appledeMBP ~ % echo $j
+2
+```
++ 对表达式的影响
+
+```
+apple@appledeMBP ~ % unset i j
+apple@appledeMBP ~ % j=1;i=1
+apple@appledeMBP ~ % let x=i++
+apple@appledeMBP ~ % echo $x
+1
+apple@appledeMBP ~ % let y=++j
+apple@appledeMBP ~ % echo $y
+2
+
+```
+
+## 四、条件判断语法结构
+
+**思考：何为真（true）？何为假（false）？**
+
+### 1. 条件判断语法格式
++ 格式1:test 条件表达式
++ 格式2：[ 条件表达式 ]
++ 格式3：[[ 条件表达式 ]] 支持正则=~
+
+**特别说明：**
++ 两边都有空格
++ 更多判断，man test 去查看，很多的参数都用来进行条件判断
+
+### 2. 条件判断相关参数
+
+问：你要判断什么？
+答：我要判断文件类型、文件新旧、判断字符串是否相等、判断权限等等...
+
+1. 判断文件类型
+| 判断参数 | 含义 |
+| :-: | :-: |
+| -e | 判断文件是否存在（任何文件类型） |
+| -f | 判断文件是否存在并且是一个普通文件 |
+| -d | 判断文件是否存在并且是一个目录 |
+| -L | 判断文件是否存在并且是一个软连接文件 |
+| -b | 判断文件是否存在并且是一个块设备文件 |
+| -S | 判断文件是否存在并且是一个套接字文件 |
+
+**举例**
+
+```
+apple@appledeMBP shell_test % test -e 2.sh; echo $?
+0
+
+apple@appledeMBP shell_test % [ -d ./dir1 ];echo $?
+0
+
+apple@appledeMBP shell_test % [[ -f ./2.sh ]];echo $?
+0
+
+apple@appledeMBP shell_test % [ ! -d ./dir2 ];echo $? //感叹号取反
+0
+
+```
+
+2. 判断文件权限
+
+| 判断参数 | 含义 |
+| :-: | :-: |
+| -r | 当前用户对其是否可读 |
+| -w | 当前用户对其是否可写 |
+| -x | 当前用户对其是否可执行 |
+| -u | 是否有suid，高级权限冒险位 |
+| -k | 是否有t位，高级权限粘滞位 |
+
+**举例：**
+
+```
+apple@appledeMBP shell_test % test -w 2.sh;echo $?
+0
+
+apple@appledeMBP shell_test % [ -r ./2.sh ];echo $?
+0
+```
+3. 判断文件的新旧
+
+说明；这里的新旧指的是文件的修改时间。
+| 判断参数 | 含义 |
+| :-: | :-: |
+| file1 -nt file2 | 比价file1是否比file2新 |
+| file1 -ot file2 | 比价文件file1是否比文件file2旧 |
+| file1 -ef file2 | 比较是否为同一个文件，或者用于判断硬连接，是否指向同一个inode |
+
+**举例**
+```
+apple@appledeMBP shell_test % test first.sh -nt first_1.sh;echo $?
+1
+
+apple@appledeMBP shell_test % [ ./first.sh -ef first_1.sh ];echo $?
+1
+```
+
+4. 判断整数
+
+| 判断参数 | 含义 |
+| :-: | :-: |
+| -eq | 相等 |
+| -ne | 不等 |
+| -eq | 相等 |
+| -eq | 相等 |
+
+5. 判断字符串
+
+| 判断参数 | 含义 |
+| :-: | :-: |
+| -z | 判断是否为空字符串，字符串长度为零则成立 |
+| -n | 判断是否为非空字符串，字符串长度不等于零则成立 |
+| string1 = string2 | 判断是字符串是否相等 |
+| string != string2 | 判断字符串是否不相等 |
+
+6. 多重判断条件
+
+
+
+
 
