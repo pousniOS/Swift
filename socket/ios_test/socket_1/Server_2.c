@@ -15,21 +15,6 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 
-void do_service(int conn){
-    char recvbuf[1024];
-    while (1) {
-        memset(recvbuf, 0, sizeof(recvbuf));
-        size_t ret = read(conn, recvbuf, sizeof(recvbuf));
-        if (ret == 0) {//说明客户端关闭了
-            printf("client_close\n");
-            break;
-        }else if (ret == -1){
-            _exit(-1);
-        }
-        fputs(recvbuf, stdout);
-        write(conn, recvbuf, ret);
-    }
-}
 
 int main(void){
     int l  = socket(PF_INET,SOCK_STREAM,IPPROTO_TCP);
@@ -68,19 +53,19 @@ int main(void){
         return -1;
     }
     printf("listen completed...\n");
-
+    
     struct sockaddr_in conn_addr;
     socklen_t conn_len = sizeof(conn_addr);
+    int conn = accept(l, (struct sockaddr*)&conn_addr, &conn_len);
+    if (conn < 0) {
+        printf("accept error\n");
+        return -1;
+    }
+    printf("连接方的IP和端口号:%s_%d\n",inet_ntoa(conn_addr.sin_addr),ntohs(conn_addr.sin_port));
+    printf("accept completed...\n");
+    
     pid_t pid;
     while (1) {
-        int conn = accept(l, (struct sockaddr*)&conn_addr, &conn_len);
-        if (conn < 0) {
-            printf("accept error\n");
-            return -1;
-        }
-        printf("连接方的IP和端口号:%s_%d\n",inet_ntoa(conn_addr.sin_addr),ntohs(conn_addr.sin_port));
-        printf("accept completed...\n");
-        
         pid = fork();
         if (pid == -1) {
             printf("pid error...\n");
@@ -88,14 +73,28 @@ int main(void){
         }
 
         if (pid == 0) {
-            close(l);
-            do_service(conn);
+            char sendbuf[1024] = {0};
+            while (fgets(sendbuf, sizeof(sendbuf), stdin) != NULL) {
+                write(conn, sendbuf, strlen(sendbuf));
+                memset(sendbuf, 0, sizeof(sendbuf));
+            }
             _exit(0);
         }else{
-            close(conn);
+            char recvbuf[1024];
+            while (1) {
+                memset(recvbuf, 0, sizeof(recvbuf));
+                size_t ret = read(conn, recvbuf, sizeof(recvbuf));
+                if (ret == 0) {//说明客户端关闭了
+                    printf("client_close\n");
+                    break;
+                }else if (ret == -1){
+                    _exit(-1);
+                }
+                fputs(recvbuf, stdout);
+            }
+            _exit(0);
         }
     }
-    
     return 0;
 }
 
